@@ -1,6 +1,6 @@
-/**
- * Created by zied on 11/07/2017.
- */
-console.log("hello world");
-console.log("Pizza");
-console.log("Test");
+var http = require('http');
+
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World!');
+}).listen(8080);
