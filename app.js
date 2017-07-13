@@ -4,15 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var http = require('http');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+//Creating the server and attach to socket.io to that server
+var serve = http.createServer(app);
+var io = require('socket.io')(serve);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+//Setting up the port
+app.set('port',process.env.PORT || 3000);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,6 +32,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+//Lunching the server for listening
+serve.listen(app.get('port'),function () {
+  console.log('Express server listening on port '+ app.get('port'));
+})
+
+//Notify the server after every user connected
+io.on('connection',function (socket) {
+  console.log('user connected');
+  //Notify the server after every user disconnected
+   socket.on('disconnect',function (socket) {
+   console.log('user disconnected');
+   });
+});
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
