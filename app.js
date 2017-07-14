@@ -8,6 +8,7 @@ var http = require('http');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var mongo = require('mongodb').MongoClient;
 
 var app = express();
 
@@ -41,10 +42,27 @@ serve.listen(app.get('port'),function () {
 //Notify the server after every user connected
 io.on('connection',function (socket) {
   console.log('user connected');
+    console.log('user connected');
+
+    //Database
+    /*mongo.connect(process.env.CUSTOMCONNSTER_MONGOLAB_URI,function (err, db) {
+        if(err)
+        {
+            Console.warn(err.message);
+        }
+        else
+        {
+            var collection = db.collection('test');
+            var stream
+        }
+    })*/
+
   //Notify the server after every user disconnected
    socket.on('disconnect',function (socket) {
    console.log('user disconnected');
    });
+
+
 });
 
 
