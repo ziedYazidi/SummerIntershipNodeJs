@@ -42,8 +42,8 @@ serve.listen(app.get('port'),function () {
 //Notify the server after every user connected
 io.on('connection',function (socket) {
   console.log('user connected');
-    console.log('user connected');
-    console.log('user connected');
+    console.log('Test ssh');
+
 
     //Database
     /*mongo.connect(process.env.CUSTOMCONNSTER_MONGOLAB_URI,function (err, db) {
