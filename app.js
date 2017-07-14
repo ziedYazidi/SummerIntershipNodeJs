@@ -8,7 +8,7 @@ var http = require('http');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var mongo = require('mongodb').MongoClient;
+//var mongo = require('mongodb').MongoClient;
 
 var app = express();
 
@@ -30,7 +30,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.get('/edit', function(req, res){
+    res.render('edit-form');
+});
 app.use('/', index);
 app.use('/users', users);
 
