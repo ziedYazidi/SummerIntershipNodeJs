@@ -37,7 +37,9 @@ app.use('/users', users);
 //Lunching the server for listening
 serve.listen(app.get('port'),function () {
   console.log('Express server listening on port '+ app.get('port'));
+  console.log('sissi');
 })
+
 
 //Notify the server after every user connected
 io.on('connection',function (socket) {
