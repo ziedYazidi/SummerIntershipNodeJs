@@ -1,4 +1,148 @@
 extends layout
-// Button trigger modal
-button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModalHorizontal')
-    | Launch Horizontal Form
+block content
+    // Button trigger modal
+    button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModalHorizontal')
+        | Add List
+    // Modal
+    #myModalHorizontal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                // Modal Header
+                .modal-header
+                    button.close(type='button', data-dismiss='modal')
+                        span(aria-hidden='true') ×
+                        span.sr-only Close
+                    h4#myModalLabel.modal-title
+                        | New List
+                // Modal Body
+                .modal-body
+                    .form-group
+                        fieldset
+                            legend Title
+                        .col-10
+                            input#example-text-input.form-control(type='text', value='')
+                    .form-group
+                        fieldset
+                            legend Date
+                        .col-10
+                            input#example-date-input.form-control(type='date', value='2017-07-21')
+                    .form-group
+                        fieldset
+                            legend Description
+                        textarea#exampleTextarea.form-control(rows='3')
+                // Modal Footer
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal')
+                        | Close
+                    button.btn.btn-primary(type='button')
+                        | Save changes
+
+    .panel-heading
+        span.glyphicon.glyphicon-list
+
+        .pull-right.action-buttons
+            .btn-group.pull-right
+                button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                    span.glyphicon.glyphicon-cog(style='margin-right: 0px;')
+                ul.dropdown-menu.slidedown
+                    li
+                        a(href='http://www.jquery2dotnet.com')
+                            span.glyphicon.glyphicon-pencil
+                            | Edit
+                    li
+                        a(href='http://www.jquery2dotnet.com')
+                            span.glyphicon.glyphicon-trash
+                            | Delete
+                    li
+                        a(href='http://www.jquery2dotnet.com')
+                            span.glyphicon.glyphicon-flag
+                            | Flag
+    .list-group
+        button.list-group-item(type='button') Cras justo odio
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Dapibus ac facilisis in
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Morbi leo risus
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Porta ac consectetur ac
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Vestibulum at eros
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Morbi leo risus
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Porta ac consectetur ac
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+        button.list-group-item(type='button') Vestibulum at eros
+            .pull-right.action-buttons
+                a(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-pencil
+                a.trash(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-trash
+                a.flag(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-flag
+    .panel-footer
+        .row
+            .col-md-6
+                h6
+                    | Total Count
+                    span.label.label-info 25
+            .col-md-6
+                ul.pagination.pagination-sm.pull-right
+                    li.disabled
+                        a(href='javascript:void(0)') «
+                    li.active
+                        a(href='javascript:void(0)')
+                            | 1
+                            span.sr-only (current)
+                    li
+                        a(href='http://www.jquery2dotnet.com') 2
+                    li
+                        a(href='http://www.jquery2dotnet.com') 3
+                    li
+                        a(href='http://www.jquery2dotnet.com') 4
+                    li
+                        a(href='http://www.jquery2dotnet.com') 5
+                    li
+                        a(href='javascript:void(0)') »
