@@ -1,10 +1,10 @@
 extends layout
 block content
     // Button trigger modal
-    button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModalHorizontal')
-        | Add task
+    button#buttonNewTask.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModalHorizontal')
+        | Add task for today
     // Modal
-    input#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
+
     #myModalHorizontal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
         .modal-dialog
             .modal-content
@@ -41,15 +41,14 @@ block content
     .panel-heading
         span.glyphicon.glyphicon-list
     .list-group
-        ul.list-group#myUL
-            each val, key in results
-                li
-                    a#DocumentsItem.list-group-item(type='button') #{"Title : " + val.Title + " ,Date : " + val.date + " ,Description : " + val.description + " ,"}
-                        .pull-right.action-buttons
-                            button#PencilButton(data-toggle='modal', data-target='#myModalHorizontal')
-                                span.glyphicon.glyphicon-pencil
-                            button#TrashButton.trash
-                                span.glyphicon.glyphicon-trash
+        each val, key in results
+            ul.list-group
+                li#DocumentsItem.list-group-item(type='button') #{"Title : " + val.Title  + " ,Description : " + val.description + " ,"}
+                    .pull-right.action-buttons
+                        a#PencilButton(data-toggle='modal', data-target='#myModalHorizontal')
+                            span.glyphicon.glyphicon-pencil
+                        a#TrashButton.trash(href='http://www.jquery2dotnet.com')
+                            span.glyphicon.glyphicon-trash
 
     .panel-footer
         .row
@@ -76,9 +75,5 @@ block content
                     li
                         a(href='javascript:void(0)') »
 
-
-
-
 block end
-    script(src='/javascripts/tasks.js')
-    script(src='/javascripts/search.js')
+    script(src='/javascripts/current.js')

@@ -28,3 +28,23 @@ body{
   padding-top: 15px;
   padding-bottom: 15px;
 }
+.carousel-inner
+{
+  overflow:inherit;
+  margin-left: 30%;
+}
+input,
+button,
+select,
+textarea{
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  color: #5bc0de;
+}
+.btn-primary{
+  margin-bottom: 10px;
+}

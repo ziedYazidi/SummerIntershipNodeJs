@@ -6,9 +6,13 @@ html
     link(href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet")
     link(href="/stylesheets/list.css" rel="stylesheet")
     link(href="/stylesheets/style.css" rel="stylesheet")
+    link(href="/stylesheets/search.css" rel="stylesheet")
+    link(href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet")
 
-    script(src='/javascripts/jquery.min.js')
+    script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js')
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
     script(src='/javascripts/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
   body
     block navbar
         nav.navbar.navbar-default
@@ -24,17 +28,12 @@ html
                 // Collect the nav links, forms, and other content for toggling
                 #bs-example-navbar-collapse-1.collapse.navbar-collapse
                     ul.nav.navbar-nav
-                        li
-                            a(href='#')
+                        li#currentTasks
+                            a(href='/current')
                                 | Current tasks
                                 span.sr-only (current)
-                        li
-                            a(href='/tasks') All lists
-
-                    form.navbar-form.navbar-left
-                        .form-group
-                            input.form-control(type='text', placeholder='Search')
-                        button.btn.btn-default(type='submit') Submit
+                        li#allTasks
+                            a(href='/tasks') All tasks
                     ul.nav.navbar-nav.navbar-right
                         li.Profile
                             a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
@@ -50,5 +49,10 @@ html
                 // /.navbar-collapse
             // /.container-fluid
     block content
+
+
+
+
+    block end
 
 
