@@ -46,6 +46,7 @@ app.get('/tasks',function (req,res) {
                 db.collection("ToDoList").find({}).count(function (erreur, number) {
                     if(erreur) throw  erreur;
                     res.render('tasks',{ results : result, numbers:number});
+                    console.log("commit");
                 })
                 db.close();
 
@@ -127,6 +128,22 @@ io.on('connection',function (socket) {
               })
           }
       })
+  })
+  socket.on('update',function (oldTitle,oldDescription,newTitre,newDesc) {
+      mongo.connect('mongodb://127.0.0.1:27017/ToDoList',function (err, db) {
+          if(err)
+          {
+              Console.warn(err.message);
+          }
+          else
+          {
+              var collection = db.collection('ToDoList');
+              db.ToDoList.update({Titre:oldTitle,description:oldDescription},{ Titre: newTitre, description:newDesc },{ upsert: true });
+              console.log('Updated');
+              db.close();
+          }
+      })
+
   })
 
   //Notify the server after every user disconnected

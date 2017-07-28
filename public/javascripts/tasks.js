@@ -25,8 +25,14 @@ $('#PencilButton').click(function () {
     var Title = text.substring(text.indexOf(":")+2,text.indexOf(","));
     //var date =
     var description = text.substring(text.lastIndexOf(":")+2,text.lastIndexOf(","));
-    $('#titleInput').val(Title);
-    $('#descriptionInput').val(description);
+    $('#titleInput2').val(Title);
+    $('#descriptionInput2').val(description);
+    $('#SaveChangesButton2').click(function () {
+        var titre=$('#titleInput2').val(Title);
+        var desc=$('#descriptionInput2').val(description);
+        socket.emit('update',title,description,titre,desc);
+    })
+
 })
 
 //delete Button
