@@ -46,7 +46,7 @@ app.get('/tasks',function (req,res) {
                 db.collection("ToDoList").find({}).count(function (erreur, number) {
                     if(erreur) throw  erreur;
                     res.render('tasks',{ results : result, numbers:number});
-                    console.log("commit ok");
+                    console.log("commit");
                 })
                 db.close();
 
