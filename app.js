@@ -139,7 +139,7 @@ io.on('connection',function (socket) {
           {
               var collection = db.collection('ToDoList');
               db.ToDoList.update({Titre:oldTitle,description:oldDescription},{ Titre: newTitre, description:newDesc },{ upsert: true });
-              console.log('Updated ok');
+              console.log('Update');
               db.close();
           }
       })
