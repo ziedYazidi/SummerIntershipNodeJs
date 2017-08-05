@@ -34,7 +34,7 @@ app.get('/edit', function(req, res){
     res.render('edit-form');
 });
 app.get('/tasks',function (req,res) {
-    mongo.connect('mongodb://127.0.0.1:27017/ToDoList',function (err,db) {
+    mongo.connect('mongodb://zytododb:KYnL6Fy4uTAqwFKFid2srWmD9aqJyXhbhOWXA1ROwAPpmB5e2953yJmHT6rC30deQTgOuaQVPpg1hmqfNM4jXA==@zytododb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',function (err,db) {
         if(err)
         {
             console.warn(err.message);
@@ -58,8 +58,8 @@ app.get('/tasks',function (req,res) {
 })
 
 app.get('/current',function (req,res) {
-    mongo.connect('mongodb://127.0.0.1:27017/ToDoList',function (err,db) {
-        if(err)
+    mongo.connect('mongodb://zytododb:KYnL6Fy4uTAqwFKFid2srWmD9aqJyXhbhOWXA1ROwAPpmB5e2953yJmHT6rC30deQTgOuaQVPpg1hmqfNM4jXA==@zytododb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',function (err,db) {
+            if(err)
         {
             console.warn(err.message);
         }
@@ -99,7 +99,7 @@ io.on('connection',function (socket) {
   console.log('user connected');
   socket.on('save',function(Title,date,description) {
       //Database
-      mongo.connect('mongodb://127.0.0.1:27017/ToDoList',function (err, db) {
+      mongo.connect('mongodb://zytododb:KYnL6Fy4uTAqwFKFid2srWmD9aqJyXhbhOWXA1ROwAPpmB5e2953yJmHT6rC30deQTgOuaQVPpg1hmqfNM4jXA==@zytododb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',function (err, db) {
           if(err)
           {
               Console.warn(err.message);
@@ -130,7 +130,7 @@ io.on('connection',function (socket) {
       })
   })
   socket.on('update',function (oldTitle,oldDescription,newTitre,newDesc) {
-      mongo.connect('mongodb://127.0.0.1:27017/ToDoList',function (err, db) {
+      mongo.connect('mongodb://zytododb:KYnL6Fy4uTAqwFKFid2srWmD9aqJyXhbhOWXA1ROwAPpmB5e2953yJmHT6rC30deQTgOuaQVPpg1hmqfNM4jXA==@zytododb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',function (err, db) {
           if(err)
           {
               Console.warn(err.message);
@@ -139,7 +139,7 @@ io.on('connection',function (socket) {
           {
               var collection = db.collection('ToDoList');
               db.ToDoList.update({Titre:oldTitle,description:oldDescription},{ Titre: newTitre, description:newDesc },{ upsert: true });
-              console.log('Updated');
+              console.log('Updated ok');
               db.close();
           }
       })
