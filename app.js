@@ -122,7 +122,7 @@ io.on('connection',function (socket) {
                   }
                   else
                   {
-                      console.log("list inserted into db successfully");
+                      console.log("list inserted into db with success");
                   }
                 
               })
