@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+//  var userHandlers = require('../controllers/userController.js');
 var mongo = require('mongodb').MongoClient;
 
 var app = express();
@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //Setting up the port
-app.set('port',process.env.PORT || 3000);
+app.set('port',process.env.PORT || 80);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/edit', function(req, res){
     res.render('edit-form');
 });
+
+//app.route ('/auth/sign_in').post(userHandlers.signin)
+
 app.get('/tasks',function (req,res) {
     mongo.connect('mongodb://zytododb:KYnL6Fy4uTAqwFKFid2srWmD9aqJyXhbhOWXA1ROwAPpmB5e2953yJmHT6rC30deQTgOuaQVPpg1hmqfNM4jXA==@zytododb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',function (err,db) {
         if(err)
