@@ -124,7 +124,7 @@ io.on('connection',function (socket) {
                   {
                       console.log("list inserted into db OK");
                   }
-                
+
               })
           }
       })
