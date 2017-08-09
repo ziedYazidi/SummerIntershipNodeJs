@@ -150,7 +150,7 @@ io.on('connection',function (socket) {
 
   //Notify the server after every user disconnected
    socket.on('disconnect',function (socket) {
-   console.log('user disconnected');
+   console.log('user disconnectedd');
    });
 
 
